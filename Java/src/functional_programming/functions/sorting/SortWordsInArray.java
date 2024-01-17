@@ -20,8 +20,9 @@ public class SortWordsInArray {
 			return result;
 		});
 		
-		System.out.println("Sorted array: ");
-		Arrays.stream(words).forEach(System.out::println);
+		for (String word : words) {
+			System.out.print(word + " ");
+		}
 		sc.close();
 		}
 		
