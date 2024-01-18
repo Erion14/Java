@@ -1,5 +1,6 @@
 package functional_programming.streams.hw.books;
 
-public class CoverType {
+public enum CoverType {
+	PAPERBACK, HARDCOVER;
 
 }
