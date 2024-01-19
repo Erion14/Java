@@ -1,5 +1,5 @@
 package functional_programming.streams.hw.present;
 
-public class Candy extends Sweet {
+public class Oreo extends Cookie {
 
 }
