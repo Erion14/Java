@@ -1,0 +1,2 @@
+Some text example 
+with Line separator and cyrylic characters: Erioni bossi 
