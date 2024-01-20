@@ -8,52 +8,52 @@ import java.util.Scanner;
 
 public class ConsoleTextEditor {
 
-    private File file;
+	private File file;
 
-    public ConsoleTextEditor(File file) {
-        this.file = file;
-    }
+	public ConsoleTextEditor(File file) {
+		this.file = file;
+	}
 
-    public void start() {
-        try (Scanner scanner = new Scanner(System.in)) {
-            StringBuilder content = new StringBuilder();
+	public void start() {
+		try (Scanner scanner = new Scanner(System.in)) {
+			StringBuilder content = new StringBuilder();
 
-            System.out.println("Welcome to the Console Text Editor!");
+			System.out.println("Welcome to the Console Text Editor!");
 
-            while (true) {
-                System.out.print("Enter text (type 'exit' to finish): ");
-                String input = scanner.nextLine();
+			while (true) {
+				System.out.print("Enter text (type 'exit' to finish): ");
+				String input = scanner.nextLine();
 
-                if ("exit".equalsIgnoreCase(input.trim())) {
-                    break;
-                }
+				if ("exit".equalsIgnoreCase(input.trim())) {
+					break;
+				}
 
-                content.append(input).append("\n");
-            }
+				content.append(input).append("\n");
+			}
 
-            writeToFile(content.toString());
+			writeToFile(content.toString());
 
-            System.out.println("\nContent of the file:");
-            displayFileContent();
+			System.out.println("\nContent of the file:");
+			displayFileContent();
 
-            System.out.println("\nConsole Text Editor has ended.");
-        } catch (IOException e) {
-            System.err.println("An error occurred: " + e.getMessage());
-        }
-    }
+			System.out.println("\nConsole Text Editor has ended.");
+		} catch (IOException e) {
+			System.err.println("An error occurred: " + e.getMessage());
+		}
+	}
 
-    private void writeToFile(String content) throws IOException {
-        try (BufferedWriter writer = new BufferedWriter(new FileWriter(file))) {
-            writer.write(content);
-            System.out.println("Text has been written to the file.");
-        }
-    }
+	private void writeToFile(String content) throws IOException {
+		try (BufferedWriter writer = new BufferedWriter(new FileWriter(file))) {
+			writer.write(content);
+			System.out.println("Text has been written to the file.");
+		}
+	}
 
-    private void displayFileContent() throws IOException {
-        try (Scanner fileScanner = new Scanner(file)) {
-            while (fileScanner.hasNextLine()) {
-                System.out.println(fileScanner.nextLine());
-            }
-        }
-    }
+	private void displayFileContent() throws IOException {
+		try (Scanner fileScanner = new Scanner(file)) {
+			while (fileScanner.hasNextLine()) {
+				System.out.println(fileScanner.nextLine());
+			}
+		}
+	}
 }
