@@ -1,18 +1,22 @@
 package multithreading;
 
+import java.io.IOException;
+import java.nio.file.Files;
+import java.nio.file.Paths;
+
 public class ThrowingExceptionDemo {
 	
 	public static void main(String[] args) {
-		var t0 = new Thread(() -> {
-				Thread.yield();
-				System.out.println(Thread.currentThread().getName());
+		var t1 = new Thread(() -> {
+			try {
+				Files.readString(Paths.get("non-existing-path"));
+			} catch (IOException ioException) {
+				throw new RuntimeException(ioException);
+			}
 		});
-	
-		var t1 = new Thread(() -> System.out.println(Thread.currentThread().getName()));
 		
-		
-		t0.start();
 		t1.start();
+		
 	}
 
 }
