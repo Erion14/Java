@@ -12,6 +12,9 @@ public class  Product{
 		this.id = id;
 		this.price = price;
 	}
+	public Product(String string, double price2) {
+		// TODO Auto-generated constructor stub
+	}
 	@Override
 	public String toString() {
 		return "Product [id=" + id + ", price=" + price + "]";
