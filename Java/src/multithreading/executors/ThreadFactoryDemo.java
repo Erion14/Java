@@ -9,8 +9,7 @@ public class ThreadFactoryDemo {
 	public static void main(String[] args) {
 		int threadnum = 4;
 		var es = Executors.newFixedThreadPool(threadnum, new DefaultThreadFactory());
-		
-		
+
 		IntStream.range(0, threadnum).forEach(i -> {
 			es.submit(() -> System.out.println(Thread.currentThread().getName()));
 		});
@@ -18,15 +17,14 @@ public class ThreadFactoryDemo {
 	}
 }
 
-
-
 class DefaultThreadFactory implements ThreadFactory {
 
 	private AtomicInteger counter = new AtomicInteger();
+
 	@Override
 	public Thread newThread(Runnable r) {
 		return new Thread(r, "Custom Thread " + counter.getAndIncrement());
-		
+
 	}
-	
+
 }

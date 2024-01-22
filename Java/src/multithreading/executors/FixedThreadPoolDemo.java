@@ -26,7 +26,7 @@ public class FixedThreadPoolDemo {
 
 		int numOfCores = Runtime.getRuntime().availableProcessors();
 		System.out.println("Available cores " + numOfCores);
-		
+
 		var es2 = Executors.newFixedThreadPool(Runtime.getRuntime().availableProcessors());
 
 	}
