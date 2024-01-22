@@ -8,11 +8,11 @@ import java.util.concurrent.TimeUnit;
 import java.util.concurrent.TimeoutException;
 
 public class CallableDemo {
-	
-	public static void main(String[] args) throws InterruptedException, ExecutionException, TimeoutException{
+
+	public static void main(String[] args) throws InterruptedException, ExecutionException, TimeoutException {
 		ExecutorService es = Executors.newCachedThreadPool();
-		Future<Integer> future = es.submit(()-> 3+1);
-		
+		Future<Integer> future = es.submit(() -> 3 + 1);
+
 		System.out.println(future.get(10, TimeUnit.SECONDS));
 	}
 

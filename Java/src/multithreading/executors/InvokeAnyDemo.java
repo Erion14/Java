@@ -10,28 +10,24 @@ import java.util.concurrent.Executors;
 import java.util.concurrent.TimeUnit;
 
 public class InvokeAnyDemo {
-	
-	public static void main(String[] args) throws InterruptedException, ExecutionException{
+
+	public static void main(String[] args) throws InterruptedException, ExecutionException {
 		ExecutorService es = Executors.newCachedThreadPool();
-		List<Callable<String>> tasks = new ArrayList<>(Arrays.asList(
-				()-> {
-					TimeUnit.MILLISECONDS.sleep(500);
-					return "task 1";
-				},
-				() -> {
-					TimeUnit.MILLISECONDS.sleep(10);
-					return "task 2";
-				},
-				() -> {
-					TimeUnit.MILLISECONDS.sleep(100);
-					return "task 3";
-				}
-				));
-		
+		List<Callable<String>> tasks = new ArrayList<>(Arrays.asList(() -> {
+			TimeUnit.MILLISECONDS.sleep(500);
+			return "task 1";
+		}, () -> {
+			TimeUnit.MILLISECONDS.sleep(10);
+			return "task 2";
+		}, () -> {
+			TimeUnit.MILLISECONDS.sleep(100);
+			return "task 3";
+		}));
+
 		String result = es.invokeAny(tasks);
-		
+
 		System.out.println(result);
-		
+
 	}
 
 }
