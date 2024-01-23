@@ -12,13 +12,13 @@ public class ReentrantLockDemo {
 	private static int counter;
 
 	private Lock lock = new ReentrantLock();
-	
-	public static void main(String[] args) throws InterruptedException{
+
+	public static void main(String[] args) throws InterruptedException {
 		var thisInstance = new ReentrantLockDemo();
 		var es = Executors.newFixedThreadPool(4);
 		IntStream.range(0, 10000).forEach((i -> es.execute(thisInstance::incrementWithLock)));
 		terminateExecutorService(es);
-		
+
 		System.out.println(counter);
 	}
 
@@ -31,14 +31,14 @@ public class ReentrantLockDemo {
 			// TODO: handle finally clause
 		}
 	}
-	
+
 	public void increment() {
-		synchronized(this) {
+		synchronized (this) {
 			counter++;
 		}
 	}
-	
-	private static void terminateExecutorService(ExecutorService es) throws InterruptedException{
+
+	private static void terminateExecutorService(ExecutorService es) throws InterruptedException {
 		es.shutdown();
 		es.awaitTermination(3, TimeUnit.SECONDS);
 		es.shutdownNow();
