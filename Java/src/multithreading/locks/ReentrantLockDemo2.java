@@ -9,28 +9,26 @@ import java.util.concurrent.locks.ReentrantLock;
 public class ReentrantLockDemo2 {
 
 	private Lock lock = new ReentrantLock();
-	
-	public static void main(String[] args) throws InterruptedException {
-			var demo = new ReentrantLockDemo2();
-			var es = Executors.newFixedThreadPool(4);
-			
-			es.execute(() -> System.out.println(demo.calculate("+",	 2, 4)));
-			es.execute(() -> System.out.println(demo.calculate("+",	 7, 3)));
-			es.execute(() -> System.out.println(demo.calculate("+",	 5, 14)));
-			
-			es.execute(() -> System.out.println(demo.calculate("-",	 20, 14)));
-			es.execute(() -> System.out.println(demo.calculate("-",	 40, 14)));
-			es.execute(() -> System.out.println(demo.calculate("-",	 21, 14)));
 
+	public static void main(String[] args) throws InterruptedException {
+		var demo = new ReentrantLockDemo2();
+		var es = Executors.newFixedThreadPool(4);
+
+		es.execute(() -> System.out.println(demo.calculate("+", 2, 4)));
+		es.execute(() -> System.out.println(demo.calculate("+", 7, 3)));
+		es.execute(() -> System.out.println(demo.calculate("+", 5, 14)));
+
+		es.execute(() -> System.out.println(demo.calculate("-", 20, 14)));
+		es.execute(() -> System.out.println(demo.calculate("-", 40, 14)));
+		es.execute(() -> System.out.println(demo.calculate("-", 21, 14)));
 
 	}
 
-	
 	public double add(double value1, double value2) {
 		try {
 			lock.lock();
 			System.out.println("lock is acquired");
-			
+
 			return value1 + value2;
 		} finally {
 			lock.unlock();
@@ -42,7 +40,7 @@ public class ReentrantLockDemo2 {
 		try {
 			lock.lock();
 			System.out.println("lock is acquired");
-			
+
 			return value1 - value2;
 		} finally {
 			lock.unlock();
@@ -70,9 +68,7 @@ public class ReentrantLockDemo2 {
 			System.out.println("lock is released");
 		}
 	}
-	
-	
-	
+
 	private static void terminateExecutorService(ExecutorService es) throws InterruptedException {
 		es.shutdown();
 		es.awaitTermination(3, TimeUnit.SECONDS);

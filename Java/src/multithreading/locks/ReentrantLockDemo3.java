@@ -10,7 +10,7 @@ public class ReentrantLockDemo3 {
 
 	public static void main(String[] args) {
 		var es = Executors.newFixedThreadPool(2);
-		
+
 		es.submit(ReentrantLockDemo3::doSomethingLong);
 		es.submit(ReentrantLockDemo3::doSomethingLong);
 
@@ -24,7 +24,7 @@ public class ReentrantLockDemo3 {
 				System.out.println("lock is acquired: " + lock.isLocked());
 				TimeUnit.SECONDS.sleep(3);
 			} else {
-				System.out.println("Thread didnt acquire a locked: " + Thread.currentThread().getName());
+				System.out.println("Thread didnt acquire a lock: " + Thread.currentThread().getName());
 			}
 
 		} catch (InterruptedException e) {
