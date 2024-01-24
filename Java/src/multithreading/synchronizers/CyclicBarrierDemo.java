@@ -21,11 +21,11 @@ public class CyclicBarrierDemo {
 	public static void main(String[] args) {
 		var demo = new CyclicBarrierDemo();
 		barrier = new CyclicBarrier(NUMBER_OF_THREADS, demo::numberGenerationCallback);
-		
+
 		var ex = Executors.newFixedThreadPool(NUMBER_OF_THREADS);
 		IntStream.range(0, NUMBER_OF_THREADS).forEach(i -> ex.submit(demo::generateNumbers));
 		System.out.println("getparties: " + barrier.getParties());
-		
+
 		ex.shutdown();
 
 	}
