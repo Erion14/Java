@@ -1,0 +1,1 @@
+This is a sample text. This text contains some words, and it repeats some words intentionally. The goal is to count how many times each word appears in this text.
