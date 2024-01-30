@@ -23,11 +23,11 @@ public class Combination {
 	
 	// method generates the combination
 	private static void backtrack(List<List<Integer>> result, List<Integer> tempList, int[] nums) {
-		// as long as the temp list size is not larger than the nums list it will generate permutations
+		// as long as the temp list size is not larger than the nums list it will generate combinations
         if (tempList.size() == nums.length) {
             result.add(new ArrayList<>(tempList));
         } else {
-        	// generate permutations 
+        	// generate combination
             for (int i = 0; i < nums.length; i++) {
                 if (tempList.contains(nums[i])) continue; // element already exists, skip
                 tempList.add(nums[i]);
