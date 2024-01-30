@@ -4,7 +4,7 @@ import java.lang.reflect.Array;
 import java.util.Arrays;
 import java.util.Iterator;
 
-public class Sort {
+public class SelectionSort {
 
 	public static void main(String[] args) {
 		int[] numbers = new int[5];
