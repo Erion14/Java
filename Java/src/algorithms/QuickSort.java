@@ -10,6 +10,8 @@ public class QuickSort {
 	    numbers.add(5);
 	    numbers.add(2);
 	    numbers.add(3);
+	    numbers.add(12);
+	    
 	    List<Integer> sortedNumbers = quicksort(numbers);
 	    System.out.println(sortedNumbers);
 	
