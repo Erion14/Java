@@ -118,7 +118,7 @@ public class OptionalDemo {
 	private static void createOptionalExample() {
 		Optional<String> emptyOptional = Optional.empty();
 
-		String string = "Learn IT University";
+		String string = "Erion";
 		Optional<String> optional = Optional.of(string);
 
 		string = null;
