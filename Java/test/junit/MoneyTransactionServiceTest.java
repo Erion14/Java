@@ -1,12 +1,18 @@
 package junit;
 import static org.junit.Assert.assertThrows;
+import static org.junit.jupiter.api.Assertions.assertAll;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
 import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.DisplayName;
+import org.junit.jupiter.api.DisplayNameGeneration;
+import org.junit.jupiter.api.DisplayNameGenerator;
 import org.junit.jupiter.api.Test;
 
 import exceptions.NotEnoughMoneyException;
 
+@DisplayName("Money Transaction Service Test")
+@DisplayNameGeneration(DisplayNameGenerator.ReplaceUnderscores.class)
 class MoneyTransactionServiceTest {
 	private static final String MONEY_AMOUNT_EXCEPTION_MSG = "Money amount should be greater than 0";
 	private static final String ACCOUNT_EXCEPTION_MSG = "Accounts shouldn't be null";
@@ -23,7 +29,7 @@ class MoneyTransactionServiceTest {
 	}
 	 
 	@Test
-	void shouldTransferMoneyFromAccountToOtherAccount() {
+	void should_Transfer_Money_From_Account_To_Other_Account() {
 		//given
 		var account1 = new Account(RANDOM_MONEY_AMOUNT);
 		var account2 = new Account(ZERO_MONEY_AMOUNT);
@@ -36,7 +42,7 @@ class MoneyTransactionServiceTest {
 		
 	}
 	@Test
-	void shouldThrowExceptionIfAccountFromIsNull() {
+	void should_Throw_Exception_If_AccountFrom_Is_Null() {
 		Account account1 = null;
 		Account account2 = new Account(RANDOM_MONEY_AMOUNT);
 		
@@ -89,6 +95,19 @@ class MoneyTransactionServiceTest {
 		assertEquals(MONEY_AMOUNT_EXCEPTION_MSG, exception.getMessage());
 	}
 
-					
+	@Test
+	void groupedAssertion() {
+		//given
+				var account1 = new Account(RANDOM_MONEY_AMOUNT);
+				var account2 = new Account(ZERO_MONEY_AMOUNT);
+				
+				//when
+				testInstance.transferMoney(account1, account2, RANDOM_MONEY_AMOUNT);
+				//then
+				
+				assertAll("Money Transaction",
+				() -> assertEquals(ZERO_MONEY_AMOUNT, account1.getMoneyAmount()),
+				() -> assertEquals(RANDOM_MONEY_AMOUNT, account2.getMoneyAmount()));
+	}
 
 }
