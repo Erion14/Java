@@ -14,7 +14,7 @@ public class Main {
 		FileOperations.createDir();
 		String originalText = FileOperations.generateText();
 		SecretKey key = EncryptionDecryption.generateKey(keySize);
-		
+	
 		
 		String encryptedText = EncryptionDecryption.encrypt(originalText, key);
 		System.out.println("Original Text : " + originalText);
