@@ -74,7 +74,6 @@ class MessengerTest {
         	messenger.sendMessage(client, template)
         );
     }
-    
     @Test
     public void shouldSetClientEmailToAddresseInEmail() {
     	// given
