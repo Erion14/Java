@@ -1,0 +1,8 @@
+Aug 14, 2024 1:38:33 PM logging.LoggerDemo doSomethingAndLog
+SEVERE: SEVERE Log
+Aug 14, 2024 1:38:33 PM logging.LoggerDemo doSomethingAndLog
+SEVERE: SEVERE Log
+Aug 14, 2024 1:38:33 PM logging.LoggerDemo doSomethingAndLog
+WARNING: WARNING Log
+Aug 14, 2024 1:38:33 PM logging.LoggerDemo doSomethingAndLog
+INFO: Info Log
